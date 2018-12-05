@@ -7,7 +7,7 @@
 <p>
 	<% if current_user.following.include?(@user.id) %>
 		<!-- unfollow button -->
-		<%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger" %>
+		<%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary", id: "unfollow_btn" %>
 	<% else %>
 		<!-- follow button -->
 		<% if current_user.id != @user.id %>
@@ -17,5 +17,5 @@
 </p>
 
 <% @user.tweets.each do |tweet| %>
-	<%= render 'layout/tweet', tweet: tweet %>
+	<%= render 'layouts/tweet', tweet: tweet %>
 <% end %>

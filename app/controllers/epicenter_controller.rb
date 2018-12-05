@@ -9,6 +9,10 @@ class EpicenterController < ApplicationController
   	end
   end
 
+  def all_users
+    @users = User.all 
+  end
+
   def show_user
   	@user = User.find(params[:id])
   end
