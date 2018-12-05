@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @tweets.each do |tweet| %>
+    <% @tweets.order(created_at: :desc).each do |tweet| %>
       <tr>
         <td><%= image_tag profile_pic(tweet.user), size: 50 %></td>
         <td><%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></td>

@@ -1,4 +1,6 @@
 <%= image_tag profile_pic(tweet.user), size: 50 %><br>
 <strong><%= tweet.user.name %></strong> @<%= tweet.user.username %> 
-	<%= time_ago_in_words(tweet.created_at).gsub('about','') %> ago<br>
+	<%= time_ago_in_words(tweet.created_at) if Time.now - tweet.created_at < 86400 %>
+	<%= tweet.created_at.strftime('%b%e') if Time.now - tweet.created_at > 86400 %>
+	<br>
 <%= tweet.message.html_safe %>
